@@ -51,7 +51,7 @@ public class Teacher implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
     @TableLogic
-    @TableField(value = "is_deleted")
+    //@TableField(value = "is_deleted")
     private Boolean deleted;
 
     @ApiModelProperty(value = "创建时间",example = "2020-01-01 10:00:00")
@@ -61,5 +61,6 @@ public class Teacher implements Serializable {
     @ApiModelProperty(value = "更新时间",example = "2020-01-01 11:00:00")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
+
 
 }
