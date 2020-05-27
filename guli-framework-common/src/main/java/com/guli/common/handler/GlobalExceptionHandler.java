@@ -8,6 +8,7 @@ package com.guli.common.handler;
  */
 
 import com.guli.common.constants.ResultCodeEnum;
+import com.guli.common.exception.GuliException;
 import com.guli.common.vo.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -44,5 +45,13 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage());
 //        e.printStackTrace();
         return R.setResult(ResultCodeEnum.JSON_PARSE_ERROR);
+    }
+
+
+    @ExceptionHandler(GuliException.class)
+    @ResponseBody
+    public R error(GuliException e){
+        e.printStackTrace();
+        return R.error().message(e.getMessage()).code(e.getCode());
     }
 }
